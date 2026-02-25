@@ -87,12 +87,16 @@
         }
         .bento-card:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-5px); }
         .bento-card span { font-size: 12px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
-        .bento-card h3 { font-size: 80px; font-weight: 800; margin: 15px 0; letter-spacing: -3px; }
+        .bento-card h3 .counter {
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+}
+        .bento-card h3 { font-size: 64px; font-weight: 800; margin: 15px 0; letter-spacing: -3px; }
         .bento-card p { color: var(--text-dim); font-size: 14px; line-height: 1.5; }
         .bento-card.dark { background: #fff; color: #000; }
         .bento-card.dark span, .bento-card.dark p { color: rgba(0,0,0,0.5); }
 
-        /* --- FAQ --- */
         .faq-section { max-width: 900px; margin: 100px auto; padding: 0 40px; }
         .faq-section h2 { font-size: 56px; text-align: center; margin-bottom: 80px; letter-spacing: -3px; }
         .faq-item { border-bottom: 1px solid var(--border); padding: 35px 0; cursor: pointer; transition: 0.3s; }
