@@ -89,101 +89,6 @@ button {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
-.opening {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    display: grid;
-    place-items: center;
-    background:
-        radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 34%),
-        #030304;
-    animation: openingExit 0.9s cubic-bezier(.7,0,.2,1) forwards;
-    animation-delay: 1.95s;
-}
-
-.opening-inner {
-    position: relative;
-    width: 240px;
-    height: 240px;
-    display: grid;
-    place-items: center;
-}
-
-.opening-ring {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.12);
-    background:
-        conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,0.72) 95deg, rgba(142,150,156,0.42) 165deg, transparent 270deg);
-    mask: radial-gradient(circle, transparent 58%, #000 60%);
-    filter: drop-shadow(0 0 34px rgba(255,255,255,0.22));
-    animation: spin 1.15s linear infinite;
-}
-
-.opening-ring:nth-child(2) {
-    inset: 30px;
-    opacity: 0.55;
-    animation-duration: 1.85s;
-    animation-direction: reverse;
-}
-
-.opening-ring:nth-child(3) {
-    inset: 66px;
-    opacity: 0.36;
-    animation-duration: 2.5s;
-}
-
-.opening-logo {
-    width: 86px;
-    height: 86px;
-    border-radius: 23px;
-    object-fit: cover;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.055);
-    box-shadow:
-        0 0 38px rgba(255,255,255,0.18),
-        inset 0 1px 0 rgba(255,255,255,0.22);
-    animation: openingLogo 1.8s ease-in-out infinite;
-}
-
-.opening-text {
-    position: absolute;
-    bottom: -40px;
-    font-weight: 800;
-    letter-spacing: 0.42em;
-    font-size: 0.76rem;
-    color: rgba(255,255,255,0.68);
-    transform: translateX(0.18em);
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes openingLogo {
-    0%, 100% {
-        transform: scale(0.97);
-        filter: brightness(0.92);
-    }
-
-    50% {
-        transform: scale(1.04);
-        filter: brightness(1.14);
-    }
-}
-
-@keyframes openingExit {
-    to {
-        opacity: 0;
-        visibility: hidden;
-        transform: scale(1.06);
-    }
-}
-
 .nav {
     position: fixed;
     top: 22px;
@@ -205,7 +110,7 @@ button {
         inset 0 1px 0 rgba(255,255,255,0.08);
     z-index: 100;
     animation: navIn 0.9s cubic-bezier(.2,.9,.2,1) both;
-    animation-delay: 2.08s;
+    animation-delay: 0.08s;
 }
 
 @keyframes navIn {
@@ -230,7 +135,8 @@ button {
     width: 42px;
     height: 42px;
     border-radius: 14px;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 4px;
     background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.13);
     box-shadow:
@@ -327,7 +233,7 @@ button {
     position: relative;
     z-index: 2;
     animation: textIn 0.95s cubic-bezier(.2,.9,.2,1) both;
-    animation-delay: 2.2s;
+    animation-delay: 0.18s;
 }
 
 @keyframes textIn {
@@ -443,7 +349,7 @@ h1 {
 .hero-stage {
     position: relative;
     animation: visualIn 1.05s cubic-bezier(.2,.9,.2,1) both;
-    animation-delay: 2.28s;
+    animation-delay: 0.26s;
 }
 
 @keyframes visualIn {
@@ -568,14 +474,18 @@ h1 {
     background:
         radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 42%),
         #101112;
+    min-height: 390px;
+    display: grid;
+    place-items: center;
 }
 
 .hero-img {
     width: 100%;
+    height: auto;
+    max-height: 560px;
     display: block;
     border-radius: 24px;
-    min-height: 390px;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
     transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
 }
@@ -933,6 +843,9 @@ h1 {
     background:
         radial-gradient(circle at center, rgba(255,255,255,0.07), transparent 42%),
         #090a0b;
+    min-height: 470px;
+    display: grid;
+    place-items: center;
 }
 
 .preview::after {
@@ -940,14 +853,15 @@ h1 {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(120deg, rgba(255,255,255,0.11), transparent 22%, transparent 78%, rgba(160,172,180,0.08));
+        linear-gradient(120deg, rgba(255,255,255,0.08), transparent 22%, transparent 78%, rgba(160,172,180,0.06));
     pointer-events: none;
 }
 
 .preview img {
     width: 100%;
-    min-height: 470px;
-    object-fit: cover;
+    height: auto;
+    max-height: 720px;
+    object-fit: contain;
     display: block;
     opacity: 0;
     transform: scale(1);
@@ -1058,7 +972,8 @@ h1 {
     width: 26px;
     height: 26px;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 2px;
     background: rgba(255,255,255,0.08);
 }
 
@@ -1166,9 +1081,17 @@ h1 {
         grid-template-columns: 1fr;
     }
 
-    .preview img,
+    .preview,
+    .image-wrap {
+        min-height: 260px;
+    }
+
     .hero-img {
-        min-height: 270px;
+        max-height: 360px;
+    }
+
+    .preview img {
+        max-height: 420px;
     }
 
     .cta {
@@ -1188,19 +1111,9 @@ h1 {
 
 <div class="noise"></div>
 
-<div class="opening">
-    <div class="opening-inner">
-        <div class="opening-ring"></div>
-        <div class="opening-ring"></div>
-        <div class="opening-ring"></div>
-        <img class="opening-logo safe-img" src="Logo.png" alt="Spectra Logo">
-        <div class="opening-text">SPECTRA</div>
-    </div>
-</div>
-
 <header class="nav">
     <a class="brand" href="#">
-        <img class="brand-logo safe-img" src="Logo.png" alt="Spectra Logo">
+        <img class="brand-logo safe-img" src="Spectra.png" alt="Spectra Logo">
         <div class="brand-title">
             <strong>Spectra</strong>
             <span>V3 Glass Edition</span>
@@ -1262,9 +1175,9 @@ h1 {
                 </div>
 
                 <div class="image-wrap">
-                    <img class="hero-img" id="heroImage" src="UI.png" alt="Spectra UI1">
+                    <img class="hero-img" id="heroImage" src="UI.png" alt="Spectra UI">
                     <div class="image-fallback" id="heroFallback">
-                        UI1.png was not found. Put UI.png beside Spectra.html.
+                        UI.png was not found. Put UI.png beside Spectra.html.
                     </div>
                 </div>
             </div>
@@ -1431,16 +1344,16 @@ h1 {
             </div>
 
             <p class="section-desc" data-i18n="previewDesc">
-                The gallery reads UI1.png, UI2.png, UI3.png, and UI4.png from the same folder as Spectra.html.
+                The gallery reads UI.png, UI2.png, UI3.png, and UI4.png from the same folder as Spectra.html.
             </p>
         </div>
 
         <div class="showcase">
             <div class="showcase-top">
                 <div class="tabs">
-                    <button class="tab active" data-img="UI1.png" data-name="UI1.png">
+                    <button class="tab active" data-img="UI.png" data-name="UI.png">
                         <i data-lucide="layout-dashboard"></i>
-                        <span>UI1</span>
+                        <span>UI</span>
                     </button>
 
                     <button class="tab" data-img="UI2.png" data-name="UI2.png">
@@ -1466,9 +1379,9 @@ h1 {
             </div>
 
             <div class="preview">
-                <img id="mainPreview" src="UI1.png" alt="Spectra UI Preview">
+                <img id="mainPreview" src="UI.png" alt="Spectra UI Preview">
                 <div class="preview-fallback" id="previewFallback">
-                    UI1.png was not found. Put UI1.png beside Spectra.html.
+                    UI.png was not found. Put UI.png beside Spectra.html.
                 </div>
             </div>
         </div>
@@ -1494,7 +1407,7 @@ h1 {
 
 <footer class="footer">
     <div class="footer-left">
-        <img class="safe-img" src="Logo.png" alt="Spectra Logo">
+        <img class="safe-img" src="Spectra.png" alt="Spectra Logo">
         <span>© 2026 Spectra Development Team</span>
     </div>
 
@@ -1503,8 +1416,8 @@ h1 {
 
 <script>
 const imageFiles = {
-    logo: "Logo.png",
-    ui1: "UI1.png",
+    logo: "Spectra.png",
+    ui1: "UI.png",
     ui2: "UI2.png",
     ui3: "UI3.png",
     ui4: "UI4.png"
@@ -1560,7 +1473,7 @@ const translations = {
 
         previewKicker: "Preview",
         previewTitle: "Local UI preview.",
-        previewDesc: "The gallery reads UI1.png, UI2.png, UI3.png, and UI4.png from the same folder as Spectra.html.",
+        previewDesc: "The gallery reads UI.png, UI2.png, UI3.png, and UI4.png from the same folder as Spectra.html.",
         previewStatus: "Loaded from current folder",
 
         ctaTitle: "Spectra V3, built by the Chinese Spectra team.",
@@ -1619,7 +1532,7 @@ const translations = {
 
         previewKicker: "預覽",
         previewTitle: "本地 UI 預覽。",
-        previewDesc: "圖片會從 Spectra.html 同一層資料夾讀取 UI1.png、UI2.png、UI3.png、UI4.png。",
+        previewDesc: "圖片會從 Spectra.html 同一層資料夾讀取 UI.png、UI2.png、UI3.png、UI4.png。",
         previewStatus: "從目前資料夾載入",
 
         ctaTitle: "Spectra V3，由中文圈 Spectra 團隊打造。",
